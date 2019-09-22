@@ -1,0 +1,162 @@
+
+/* reset de padrões */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: middle;
+}
+
+body {
+    background: #000;
+    color: #FFF;
+    font-family: "Fira Code", 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+hr {
+    border: 0.1vw solid #fff;
+}
+.titulo {
+    width: 100%;
+    margin: 0 auto;
+    text-align:center;
+    font-size: 3vw;
+}
+.subTitulo{
+    width: 100%;
+    padding: 1vw 0;
+}
+.conteudo {
+    width:50vw;
+	background:#777;
+	margin: 3vw auto;
+	padding: 1vw;
+	text-align:center;
+    color:#FFF;
+    animation: fadeIn 300ms;
+    border: 0.1vw solid white;
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    font-size: 1vw;
+}
+.tabela {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.tabela td {
+    padding: 0.2vw 0.3vw;
+    white-space: nowrap;
+    max-width: 10vw;
+    overflow: hidden;
+}
+.item {
+    color: #111;
+}
+.itemTitulo {
+    text-align: center;
+    width: 100%;
+    margin: 0vw auto;
+}
+.item:hover {
+    color:#000;
+    cursor:pointer;
+    font-weight: bold;
+}
+.link {
+    text-decoration: none;
+    color:black;
+}
+.link:visited {
+    color: #000;
+}
+.formCadastro, tr, .formPesquisa {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding:0;
+}
+.formCadastro td:nth-child(1) {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.botao {
+    background: transparent;
+    border: 0.1vw solid black;
+    padding: 0.6vw;
+    margin:1vw;
+    border-radius:1vw;
+    font-weight: bold;
+    width: 7vw;
+    font-size: 1vw;
+}
+.botao:hover {
+    cursor: pointer;
+    background: #999;
+    
+}
+.inputCadastro, .inputPesquisa {
+    width:33.5vw;
+    background: transparent;
+    padding: 0.6vw;
+    border: 0.1vw solid black;
+    font-size: 1vw;
+}
+
+
+
+
+/* efeitos */
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    } to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    } to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+@-o-keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    } to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    } to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
