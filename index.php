@@ -94,7 +94,7 @@ if (isset($_GET['menu']) && $_GET['menu'] == 1){
                 </tr>
                 <tr>
                     <td align="right">CNPJ: </td>
-                    <td><input type="text" value="<?php echo $empresa->cnpj; ?>" class="inputCadastro" name="cnpj" maxlength="18" pattern="[0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\.]?[\/]?[0-9]{4}[-]?[0-9]{2}" style="border-bottom:none" required></td>
+                    <td><input type="text" id="addcnpj" value="<?php echo $empresa->cnpj; ?>" class="inputCadastro" name="cnpj" maxlength="18" pattern="[0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\.]?[\/]?[0-9]{4}[-]?[0-9]{2}" style="border-bottom:none" onkeypress="formataCnpj('addcnpj')" required></td>
                 </tr>
                 <tr>
                     <td align="right">CNAE Principal: </td>
@@ -111,15 +111,6 @@ if (isset($_GET['menu']) && $_GET['menu'] == 1){
             <input type="submit" value="<?php if ($_GET['id'] == 0) { echo 'Cadastrar'; } else { echo 'Atualizar'; } ?>" class="botao">
             <?php if ($_GET['id'] != 0) { ?><input type="button" value="Deletar" class="botao" onclick="confirmaDelete()"><?php } ?>
         </form>
-        <script>
-            function confirmaDelete(){
-                var temp = confirm('Deseja realmente deletar a empresa <?=$empresa->nome?>?');
-                if (temp == true) {
-                    document.getElementById('deletar').value = true;
-                    document.getElementById('formCadastro').submit();
-                }
-            }
-        </script>
         <?php
         } //fecha condicional do crud
 
@@ -141,7 +132,7 @@ if (isset($_GET['menu']) && $_GET['menu'] == 2){
                 Por CNPJ: 
                 </td>
                 <td>
-                <input type="text" class="inputPesquisa" name="cnpj" style="border-bottom-left-radius: 1vw;border-bottom-right-radius: 1vw;">
+                <input type="text" class="inputPesquisa" name="cnpj" id="buscacnpj" onkeypress="formataCnpj('buscacnpj')" maxlength="18" style="border-bottom-left-radius: 1vw;border-bottom-right-radius: 1vw;">
                 </td>
             </tr>
         </table>
@@ -151,6 +142,27 @@ if (isset($_GET['menu']) && $_GET['menu'] == 2){
     <input type="hidden" value="true" name="pesquisa">
     <input type="submit" value="Pesquisar" class="botao">
     </form>
+    <script language="javascript" type="text/javascript">
+        function formataCnpj(id){
+        var cnpj = document.getElementById(id);
+        var vl = cnpj.value;
+	    var caractere = vl.toString().length;
+	    switch(caractere){
+		case 2:
+		    cnpj.value = vl + ".";
+		    break;
+        case 6:
+            cnpj.value = vl + ".";
+            break;
+        case 10:
+            cnpj.value = vl + "/";
+            break;
+        case 15:
+            cnpj.value = vl + "-"
+            break;
+	    }
+    }
+    </script>
 <?php
 } //fecha condicional de pesquisa
 
@@ -162,6 +174,34 @@ if (isset($_GET['menu']) && $_GET['menu'] == 3){
     }
 } //fecha condicional do resultado da pesquisa
         ?>
+<script language="javascript" type="text/javascript">
+    function confirmaDelete(){
+        var temp = confirm('Deseja realmente deletar a empresa <?=$empresa->nome?>?');
+        if (temp == true) {
+            document.getElementById('deletar').value = true;
+            document.getElementById('formCadastro').submit();
+        }
+    }
+    function formataCnpj(id){
+        var cnpj = document.getElementById(id);
+        var vl = cnpj.value;
+	    var caractere = vl.toString().length;
+	    switch(caractere){
+		case 2:
+		    cnpj.value = vl + ".";
+		    break;
+        case 6:
+            cnpj.value = vl + ".";
+            break;
+        case 10:
+            cnpj.value = vl + "/";
+            break;
+        case 15:
+            cnpj.value = vl + "-"
+            break;
+	    }
+    }
+</script>
     </div><!-- Fecha a DIV conteúdo -->
 </body>
 </html>
